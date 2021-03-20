@@ -1,0 +1,82 @@
+# vim: tabstop=2 shiftwidth=2 noexpandtab colorcolumn=80 :
+# This file is part of the Sim800 (https://github.com/beranat/sim800).
+# Copyright (c) 2021 Anatoly L. Berenblit.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+menu "Application Configuration"
+	config LED_GPIO
+		int "LED GPIO number"
+		range 0 34
+		default 13
+		help
+			LED's GPIO number (IOxx).
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+			GPIOs 35-39 are input-only so cannot be used as outputs.
+
+	menu "SIM800 configuration"
+
+	config SIM800_UART_PORT
+		int "UART port number"
+			range 0 2
+			default 1
+			help
+				UART communication port number for the example.
+				See UART documentation for available port numbers.
+
+		config SIM800_TX_GPIO
+			int "TX GPIO number"
+			range 0 34
+			default 26
+			help
+				Transmitter to SIM GPIO number (IOxx).
+				Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+				GPIOs 35-39 are input-only so cannot be used as outputs.
+
+		config SIM800_RX_GPIO
+			int "RX GPIO number"
+			range 0 39
+			default 27
+			help
+				Transmitter to SIM GPIO number (IOxx).
+				Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+
+		config SIM800_POWER_GPIO
+			int "Power GPIO number"
+			range 0 34
+			default 23
+			help
+				Transmitter to SIM GPIO number (IOxx).
+				Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+				GPIOs 35-39 are input-only so cannot be used as outputs.
+
+		config SIM800_RESET_GPIO
+			int "Reset GPIO number"
+			range 0 34
+			default 5
+			help
+				Transmitter to SIM GPIO number (IOxx).
+				Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+				GPIOs 35-39 are input-only so cannot be used as outputs.
+
+		config SIM800_POWERKEY_GPIO
+			int "Power key GPIO number"
+			range 0 34
+			default 4
+			help
+				Transmitter to SIM GPIO number (IOxx).
+				Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+				GPIOs 35-39 are input-only so cannot be used as outputs.
+
+	endmenu
+endmenu
+
